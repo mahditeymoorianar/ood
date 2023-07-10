@@ -1,0 +1,27 @@
+\newcounter{activityid}
+\setcounter{activityid}{0}
+\newcommand{\activitydiagramofusecase}[3]{
+    \stepcounter{activityid}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.5\textwidth]{files/figures/ActivityDiagrams/#1}
+        \caption{نمودار فعّالیت برای مورد کاربرد «#2» به شناسه‌ی \arabic{activityid}}
+        \label{fig:#3}
+    \end{figure}
+}
+
+\activitydiagramofusecase{1_sign_up.png}{عضویت}{sign_up}
+\activitydiagramofusecase{2_login.png}{ورود}{login}
+\activitydiagramofusecase{3_channel_create.png}{ساختن کانال}{channel_create}
+\activitydiagramofusecase{4_post_create.png}{فرستادن پست}{post_create}
+\activitydiagramofusecase{5_plan_define.png}{تعریف تعرفه}{plan_define}
+\activitydiagramofusecase{6_admin_set.png}{تعیین مدیر}{admin_set}
+\activitydiagramofusecase{7_channel_join.png}{عضو شدن در کانال}{channel_join}
+\activitydiagramofusecase{8_subscription_buy.png}{خریدن اشتراک}{subscription_buy}
+\activitydiagramofusecase{9_checkout.png}{تسویه‌ی مالی}{checkout}
+\activitydiagramofusecase{10_share_set.png}{تعیین سهم مدیران}{share_set}
+\activitydiagramofusecase{11_post_view.png}{نمایش پست}{post_view}
+\activitydiagramofusecase{12_post_purchase.png}{خرید پست}{post_purchase}
+\activitydiagramofusecase{13_channels_list_view.png}{نمایش فهرست کانال‌ها}{channels_list_view}
+\activitydiagramofusecase{14_search.png}{جستجو}{search}
+\activitydiagramofusecase{16_account_exit.png}{خروج از حساب}{account_exit}

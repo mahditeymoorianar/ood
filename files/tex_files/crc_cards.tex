@@ -1,0 +1,308 @@
+\newcommand{\crccard}[3]{
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{||p{104mm}||}
+            \hline
+            \begin{center}
+                \textbf{#1}
+            \end{center}
+            \\\hline
+        \end{tabular}
+        \begin{tabular}{||p{5cm}|p{5cm}||}
+            
+            مسئولیت‌ها:#2 & همکاران: #3 \\\hline
+        \end{tabular}
+    \end{table}
+}
+
+\crccard{کاربر}{
+    \begin{itemize}
+        \item پرداختن هزینه‌ی محتوای پولی
+        \item مشاهده‌ی فهرست کانال‌های عضوشده
+        \item عضو شدن در کانال
+        \item خریدن اشتراک
+        \item مشاهده‌ی پست‌ها (با توجّه به سطح دسترسی)
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کانال
+        \item اشتراک کاربر
+        \item تراکنش
+        \item پست
+    \end{itemize}
+}
+
+\crccard{مالک کانال (زیرکلاسی از «مدیر کانال»)}{
+    \begin{itemize}
+        \item گزیدن مدیر
+        \item تعیین سهم مدیران
+        \item ایجاد کانال
+        \item تعیین تعرفه‌های اشتراک‌ها
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کانال
+        \item مدیر کانال
+    \end{itemize}
+}
+
+\crccard{مدیر کانال}{
+    \begin{itemize}
+        \item ایجاد محتوا (پست) برای کانال
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کانال
+        \item پست
+    \end{itemize}
+}
+
+\crccard{کانال}{
+    \begin{itemize}
+        \item نمایش پست‌ها (با توجه به سطح دسترسی)
+        \item نمایش مشخصات و جزئیات کانال
+        \item دربرگرفتن فهرست اعضا و مدیران
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کاربر
+        \item عضو عادی
+        \item عضو ویژه
+        \item مدیر
+        \item پست
+        \item جستجو
+    \end{itemize}
+}
+
+\crccard{جستجو}{
+    \begin{itemize}
+        \item انجام جستجو
+        \item نمایش نتایج جستجو
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کاربر
+        \item کانال
+    \end{itemize}
+}
+
+\crccard{عضو ویژه}{
+    \begin{itemize}
+        \item مشاهده‌ی پست
+        \item نوع اشتراک
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item اشتراک
+        \item کانال
+        \item پست 
+        \item کاربر
+    \end{itemize}
+}
+
+\crccard{عضو عادی}{
+    \begin{itemize}
+        \item مشاهده‌ی پست
+        \item پرداختن موردی
+        \item خریدن اشتراک
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کانال
+        \item پست
+        \item کاربر
+    \end{itemize}
+}
+
+\crccard{اشتراک کاربر}{
+    \begin{itemize}
+        \item تاریخ آغاز
+        \item مدت زمان (نوع اشتراک)
+        \item بررسی منقضی‌شده بودن
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کاربر
+        \item کانال
+    \end{itemize}
+}
+
+\crccard{تعرفه‌ی کانال}{
+    \begin{itemize}
+        \item ایجاد شدن
+        \item فهرست تعرفه‌های کانال
+        \item تغییر کردن
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کاربر
+        \item مالک کانال
+        \item عضو عادی
+        \item تراکنش
+    \end{itemize}
+}
+
+\crccard{پست}{
+    \begin{itemize}
+        \item ایجاد شدن
+        \item رایگان یا پولی بودن
+        \item نمایش با توجه به سطح دسترسی
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item مدیر کانال
+        \item کانال
+    \end{itemize}
+}
+
+\crccard{پست پولی (زیرکلاسی از «پست»)}{
+    \begin{itemize}
+        \item قیمت
+        \item عنوان پست
+        \item خلاصه‌ی پست پولی
+        \item نمایش با توجّه به سطح دسترسی
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item عضو عادی
+        \item کانال
+        \item مدیر کانال
+        \item عضو ویژه
+        \item تراکنش
+    \end{itemize}
+}
+
+\crccard{تراکنش}{
+    \begin{itemize}
+        \item ایجاد شدن
+        \item محاسبه‌ی درآمد (ماهانه‌ی) کانال
+        \item ذخیره‌ی تراکنش
+        \item سوابق تراکنش‌ها
+        \item تسویه‌ی مالی
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item عضو عادی
+        \item کانال
+        \item پست
+        \item مدیر کانال
+    \end{itemize}
+}
+
+\crccard{عکس}{
+    \begin{itemize}
+        \item ایجاد شدن
+        \item حجم
+        \item نمایش
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کانال
+        \item عضو عادی
+        \item عضو ویژه
+        \item مدیر کانال
+    \end{itemize}
+}
+
+\crccard{فیلم (ویدیو)}{
+    \begin{itemize}
+        \item ایجاد شدن
+        \item نمایش
+        \item طول فیلم
+        \item حجم فیلم
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کانال
+        \item عضو عادی
+        \item عضو ویژه
+        \item مدیر کانال
+    \end{itemize}
+}
+
+\crccard{فایل صوتی}{
+    \begin{itemize}
+        \item ایجاد شدن
+        \item پخش شدن
+        \item طول صوت
+        \item حجم فایل
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item کانال
+        \item عضو عادی
+        \item عضو ویژه
+        \item مدیر کانال
+    \end{itemize}
+}
+
+% \begin{figure}[H]
+
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/1.png}
+% \end{figure}        
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/2.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/3.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/4.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/5.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/6.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/7.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/8.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/9.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/10.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/11.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/12.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/13.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/14.png}
+% \end{figure}            
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/16.png}
+% \end{figure}       
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width = 0.8\textwidth]{files/crc/17.png}
+% \end{figure}       
+
+
+
+
+

@@ -1,0 +1,402 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage[left = 20mm, right = 20mm, top = 20mm, head = 10mm]{geometry}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{longtable}
+
+%%
+%% HERE IS THE MOST IMPORTANT INFORMATION ABOUT
+%%      THIS DOCUMENT
+%%
+\newcommand{\subjectname}{طرّاحی سیستم‌های شئ‌گرا}
+\newcommand{\profname}{دکتر رامسین}
+% \newcommand{\assignmentNo}{7}
+\newcommand{\dateof}{بهـــار ۱۴۰۲}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=darkblue,
+    filecolor=magenta,      
+    urlcolor=purple,
+    pdftitle={مستند فاز ۱ پروژه‌ی درس طرّاحی سیستم‌های شئ‌گرا},
+    % pdftitle={تمرین \assignmentNo \subjectname},
+    pdfauthor={مهدی تیموری انار},
+    % pdfkeywords={, شئ‌گرا, شریف, دانشگاه, تکلیف},
+    pdfkeywords={تکلیف, دانشگاه, شریف, شئ‌گرا, , assignment, university, ood, object oriented, computer, Sharif}
+    pdfpagemode=FullScreen,
+}
+% \usepackage{algorithm}
+% \usepackage{algorithmic}
+\usepackage[linesnumbered, ruled]{algorithm2e}
+% \include{pythonlisting}
+% \usepackage{mismath}
+\usepackage[utf8]{inputenc}
+\usepackage{xepersian}
+\pagestyle{fancy}
+% \symbol{"FDFD}\\\vspace{2mm}
+\fancyhead[C]{
+    \includegraphics*[width = 0.08\textwidth]{logo.png}
+}
+\fancyhead[R]{مهدی تیموری انار، آیناز رفیعی، حامد عبدی، پرهام عسکرزاده\\\dateof}
+\fancyhead[L]{فاز ۱ پروژه‌ی درس طرّاحی شئ‌گرا\\شبکه‌ی اجتماعی قاصدک}
+\fancyheadoffset{10mm}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+% \headrulewidth{0.4pt}
+% \footrulewidth{0 pt}
+\fancyfoot[C]{رویه‌ی \thepage}
+\settextfont{Amiri}
+\setmathdigitfont[]{Amiri}
+\setlatinsansfont[]{Amiri}
+\setlatintextfont[]{Amiri}
+% \setlatintextfont{Consolas}
+% \setlatinsansfont{Consolas}
+\author{\large مهدی تیموری انار - ۹۹۱۰۱۳۵۴\\
+\large آیناز رفیعی - ۹۸۱۷۰۸۱۶\\
+\large حامد عبدی - ۹۶۱۰۹۷۸۲\\
+\large پرهام عسکرزاده - ۹۸۱۷۰۹۳۵
+}
+\date{\dateof}
+
+% Label format
+\DeclareCaptionLabelFormat{custom}
+{%
+      نگاره‌ی #2
+}
+% Separator style
+% \DeclareCaptionLabelSeparator{custom}{--}
+% Caption format    
+% \DeclareCaptionFormat{custom}
+% {%
+%     #1#2\small #3
+% }
+\renewcommand{\figurename}{نگاره‌ی}
+% \renewcommand{\algorithmcfname}[][]{الگوریتم}
+% \renewcommand{\lstlistingname}{\begin{persian}پاره‌کد\end{persian}}
+\renewcommand{\lstlistingname}{code}
+% \captionsetup
+% {
+%     % format=custom,%
+%     labelformat=custom,%
+%     % labelsep=custom
+% }
+%
+\definecolor{customgreen}{rgb}{0,0.6,0}
+\definecolor{customgray}{rgb}{0.5,0.5,0.5}
+\definecolor{purple}{rgb}{0.31,0,0.31}
+\definecolor{pink}{rgb}{0.85,0.21,0.41}
+\definecolor{custommauve}{rgb}{0.6,0,0.8}
+\definecolor{darkblue}{rgb}{0, 0, 0.8}
+\definecolor{codeblockbg}{rgb}{0.85, 0.95, 1}
+
+\newtoggle{InString}{}% Keep track of if we are within a string
+\togglefalse{InString}% Assume not initally in string
+
+\newcommand*{\ColorIfNotInString}[1]{\iftoggle{InString}{#1}{\color{blue}#1}}%
+\newcommand*{\ProcessQuote}[1]{#1\iftoggle{InString}{\global\togglefalse{InString}}{\global\toggletrue{InString}}}%
+
+\lstset{ 
+    basicstyle=\small,        % the size of the fonts that are used for the code
+    breaklines=true,                 % sets automatic line breaking
+    commentstyle=\color{customgreen},    % comment style
+    firstnumber=1,                % start line enumeration with line 1000
+    frame=single,	                   % adds a frame around the code
+    keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+    keywordstyle=\color{blue},       % keyword style
+    numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=10pt,                   % how far the line-numbers are from the code
+    numberstyle=\tiny\color{customgray}, % the style that is used for the line-numbers
+    rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+    showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,          % underline spaces within strings only
+    showtabs=false,                  % show tabs within strings adding particular underscores
+    stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+    stringstyle=\color{custommauve},     % string literal style
+    tabsize=2,	                   % sets default tabsize to 2 spaces
+    title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+    % literate=
+    % {0}{{{\ProcessDigit{0}}}}1
+    % {1}{{{\ProcessDigit{1}}}}1
+    % {2}{{{\ProcessDigit{2}}}}1
+    % {3}{{{\ProcessDigit{3}}}}1
+    % {4}{{{\ProcessDigit{4}}}}1
+    % {5}{{{\ProcessDigit{5}}}}1
+    % {6}{{{\ProcessDigit{6}}}}1
+    % {7}{{{\ProcessDigit{7}}}}1
+    % {8}{{{\ProcessDigit{8}}}}1
+    % {9}{{{\ProcessDigit{9}}}}1
+    % {<=}{{\(\leq\)}}1
+    literate=%
+    {"}{{{\ProcessQuote{"}}}}1% Disable coloring within double quotes
+    {'}{{{\ProcessQuote{'}}}}1% Disable coloring within single quote
+    {0}{{{\ColorIfNotInString{0}}}}1
+    {1}{{{\ColorIfNotInString{1}}}}1
+    {2}{{{\ColorIfNotInString{2}}}}1
+    {3}{{{\ColorIfNotInString{3}}}}1
+    {4}{{{\ColorIfNotInString{4}}}}1
+    {5}{{{\ColorIfNotInString{5}}}}1
+    {6}{{{\ColorIfNotInString{6}}}}1
+    {7}{{{\ColorIfNotInString{7}}}}1
+    {8}{{{\ColorIfNotInString{8}}}}1
+    {9}{{{\ColorIfNotInString{9}}}}1
+    }
+%
+\title{
+    \vspace{-50mm}
+    \symbol{"FDFD}\\
+    \vspace{40mm}
+    {\includegraphics[width = 300pt]{logo.png}}\\
+    \vspace{10mm}
+    % {\huge  \assignmentNتمرین سریo \subjectname}\\
+    {\huge فاز ۱ پروژه‌ی طرّاحی سیستم‌های شئ‌گرا}\\
+    \vspace{5mm}
+    {\large \subjectname - \profname}\\
+    %TODO:
+    {\normalsize پیوست: ندارد.}
+    \vspace{-5mm}
+}
+% \defpersianfont\titr[Scale=1.5]{Amiri}
+
+% \defpersianfont\fehrest[Scale=1.2]
+
+% \defpersianfont\fehrestTitle[Scale=3.0]
+
+% \defpersianfont\fehrestContent[Scale=1.2]
+
+% \newcounter{question-count}
+% % \setcounter{question-count}{1}
+% \newcommand{\question}[1]
+% {	
+% 	\stepcounter{question-count}
+% 	\section*{{\titr سؤال #1. }}
+	
+% 	\addcontentsline{toc}{section}{{\fehrestContent سؤال \arabic{1}. }}
+	
+%     % #1
+% }
+
+\lstdefinelanguage{JavaScript}{
+    backgroundcolor=\color{codeblockbg},
+    basicstyle=\ttfamily\normalsize,
+  keywords={break, toString, bind, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={assert before, after, beforeEach, afterEach, skip, 
+    retries, only, it, equal, describe, require, class, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{pink}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{customgreen}\ttfamily,
+  sensitive=true
+}
+
+\newcommand{\digitstyle}{\color{red}}
+\newcommand{\ProcessDigit}[1]
+{%
+  \ifnum\lst@mode=\lst@Pmode\relax%
+   {\digitstyle #1}%
+  \else
+    #1%
+  \fi
+}
+\lstdefinelanguage{mips}{
+    backgroundcolor=\color{codeblockbg},
+    basicstyle=\ttfamily\normalsize,
+  keywords={lw, sw, add, sub, bne, nop},
+  morecomment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={\$,\#,(, ), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, Loop,
+  \$1, \$2, \$3, \$4, \$5, \$6, \$7, \$8, \$9, \$0},
+  extendedchars=true,
+  numbersep=5pt,
+  numbers=left,
+  keywordstyle=\color{pink}\bfseries,
+  ndkeywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{customgreen}\ttfamily,
+  stringstyle=\color{customgreen}\ttfamily,
+  numberstyle=\color[rgb]{0.805, 0.142, 0.73},
+%   digitstyle=\color[rgb]{0.805, 0.142, 0.73},
+  sensitive=true,
+}
+
+
+\newcommand{\question}[1]{
+    % \pagebreak
+    \section*{{سؤال #1}}
+    \hspace*{3mm}
+    \addcontentsline{toc}{section}{{سؤال #1}}
+}
+
+\newcommand{\questionpart}[1]{
+    \section*{{\large #1)}}
+    % \vspace*{-9mm}
+    \hspace*{3mm}
+    \addcontentsline{toc}{subsection}{{#1}}
+}
+
+\newcounter{titr-count}
+\newcounter{zirtitr-count}
+\newcounter{zirzirtitr-count}
+\setcounter{titr-count}{-1}
+\setcounter{zirtitr-count}{0}
+\setcounter{zirzirtitr-count}{0}
+
+\newcommand{\titr}[1]{
+    \setcounter{zirtitr-count}{0}
+    \stepcounter{titr-count}
+    \section*{\arabic{titr-count}- #1}
+    \addcontentsline{toc}{section}{\arabic{titr-count}- #1}
+    \hspace*{3mm}
+}
+\newcommand{\zirtitr}[1]{
+    \stepcounter{zirtitr-count}
+    \subsection*{\arabic{titr-count}-\arabic{zirtitr-count}- #1}
+    \addcontentsline{toc}{subsection}{\arabic{titr-count}-\arabic{zirtitr-count}- #1}
+    \hspace*{3mm}
+}
+\newcommand{\zirzirtitr}[1]{
+    \stepcounter{zirzirtitr-count}
+    \subsubsection*{\arabic{titr-count}-\arabic{zirzirtitr-count}-\arabic{zirzirtitr-count}- #1}
+    \addcontentsline{toc}{subsubsection}{\arabic{titr-count}-\arabic{zirzirtitr-count}-\arabic{zirzirtitr-count}- #1}
+    \hspace*{3mm}
+    \vspace*{-8mm}
+}
+\newcommand{\expected}[1]{
+    \mathbb{E}[#1]
+}
+\newcommand{\var}[1]{
+    \textrm{Var}(#1)
+}
+\newcommand{\negare}[1]{
+    نگاره‌ی \ref{#1}
+}
+\renewcommand{\listfigurename}{فهرست نگاره‌ها}
+\renewcommand{\lstlistingname}{\rl{پاره‌کد}}
+\renewcommand{\lstlistlistingname}{فهرست کدها}
+\begin{document}
+    \maketitle
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+    \listoffigures
+    % \pagebreak
+    % \lstlistoflistings
+    % \pagebreak
+    % \listoftables
+    \pagebreak
+    \titr{تعریف زیرسیستم‌ها}
+        \begin{itemize}
+            \item \textbf{ناحیه‌ی کاربری: } 
+                وظیفه‌ی این زیرسیستم، مدیریت اطلاعات کاربران، ثبت نام  و ورود، لیست کانال‌های عضو شده و … است.
+            \item \textbf{مدیریت کانال: }
+                این زیرسیستم وظایفی همچون ایجاد کانال و نهادن محتوا در کانال، انتساب نقش‌های چهارگانه و امکان تعیین مدیر توسط مالک کانال و … را بر عهده دارد.
+            \item \textbf{مدیریت اشتراک و پرداخت ها: } 
+                امکان تعریف تعرفه‌های اشتراک و انواع تعرفه‌ها، امکان خریدن اشتراک‌ها، امکان تعیین سهم مدیر توسط مالک و در کل مسائل مربوط به امور مالی و اشتراک‌ها را بر عهده دارد.
+            \item \textbf{مدیریت دسترسی  و نمایش محتوا: }
+                این زیرسیستم وظایف مربوط به بررسی دسترسی افراد به محتوا را بر عهده دارد از جمله امکان مشاهده‌ی پست‌های رایگان توسط همه‌ی کاربران کانال، امکان مشاهده‌ی عنوان و خلاصه‌ی محتواهای پولی برای اعضای عادی و امکان مشاهده‌ی کل پست‌ها برای کاربر ویژه (و مدیران) و امکان ویرایش اطلاعات کانال‌ها توسط مدیران.
+            \item \textbf{جستجو: } 
+                این زیرسیستم، امکان جستجوی کانال‌های جدید برای عضویت را فراهم می‌کند.
+        \end{itemize}
+    
+    \titr{سند نیازمندی‌ها}
+        \input{files/tex_files/requirements.tex}
+
+        
+    \titr{سند ریسک‌ها}
+        \input{files/tex_files/risks.tex}            
+        \titr{ریسک های تکنیکی}
+        \input{files/tex_files/technicrisks.tex} 
+   
+    \titr{موارد کاربرد}
+        \zirtitr{توضیحات هر مورد کاربرد}
+            \input{files/tex_files/use_case_description.tex}        
+        \pagebreak
+        \zirtitr{نمودارهای موارد کاربرد به تفکیک زیرسیستم}
+            \begin{figure}[H]
+                \centering
+                    \includegraphics[width = 0.30\textwidth]{files/use-case/profile.png}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width = 0.20\textwidth]{files/use-case/search.png}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width = 0.40\textwidth]{files/use-case/channel.png}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width = 0.40\textwidth]{files/use-case/supscription.png}
+                \end{figure}
+                    \begin{figure}[H]
+                    \centering
+                \includegraphics[width = 0.40\textwidth]{files/use-case/access.png}
+                \caption{نمودارهای موارد کاربرد به تفکیک زیرسیستم}
+            \end{figure}
+ 
+    \titr{نمودارهای فعالیت}
+        \input{files/tex_files/activity_diagrams.tex}
+
+    \titr{کارت‌های \lr{crc}}
+        \input{files/tex_files/crc_cards.tex}
+
+    \titr{معماری سیستم}
+        \input{files/tex_files/architect.tex}
+    \titr{ نمونه اولیه واسط کاربری }
+        \input{files/tex_files/ui.tex}
+        
+    \titr{واژه‌نامه}
+        \input{files/tex_files/glossary.tex}
+    
+    \titr{برنامه‌ی زمان‌بندی فاز ۲}
+        \begin{figure}[H]
+            \centering
+            \includegraphics*[width = 0.7\textwidth]{files/figures/phase2timing/page1.png}
+            \includegraphics*[width = 0.7\textwidth]{files/figures/phase2timing/page2.png}
+            \caption{برنامه‌ی زمانبندی‌شده‌ی فاز ۲}
+        \end{figure}
+            % \begin{figure}[H]
+    %     \centering
+    %     \includegraphics[width = 0.5\textwidth]{files/9.png}
+    %     \caption{
+    %         تعیین ورودی‌های eprom در پروتئوس
+    %     }
+    %     % \label{fig:transition_diagram_q6_p2}
+    % \end{figure}
+
+    % \begin{figure}[H]
+    %     \centering
+    %     \includegraphics[width = 0.4\textwidth]{files/1.png}\hfill
+    %     \includegraphics[width = 0.4\textwidth]{files/2.png}\\
+    %     \includegraphics[width = 0.4\textwidth]{files/3.png}\hfill
+    %     \includegraphics[width = 0.4\textwidth]{files/4.png}\\
+    %     \includegraphics[width = 0.4\textwidth]{files/5.png}\hfill
+    %     \includegraphics[width = 0.4\textwidth]{files/6.png}\\
+    %     \includegraphics[width = 0.4\textwidth]{files/7.png}\hfill
+    %     \includegraphics[width = 0.4\textwidth]{files/8.png}\\
+    %     \caption{
+    %         نتایج تولید اعداد فیبوناچی
+    %     }
+    %     % \label{fig:transition_diagram_q6_p2}
+    % \end{figure}
+\end{document}
