@@ -1,0 +1,26 @@
+% \newcounter{sequenceid}
+% \setcounter{sequenceid}{0}
+\newcommand{\secuencediagram}[3]{
+    % \stepcounter{sequenceid}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.5\textwidth]{files/figures/SequenceDiagrams/#1}
+        \caption{نمودار توالی برای #2}
+        \label{fig:#3_seq}
+    \end{figure}
+}
+
+\secuencediagram{1_sign_up.jpg}{عضویت}{sign_up}
+\secuencediagram{2_login.jpg}{ورود}{login}
+\secuencediagram{3_channel_create.jpg}{ساختن کانال}{channel_create}
+\secuencediagram{4_post_create.jpg}{فرستادن پست}{post_create}
+\secuencediagram{5_plan_define.jpg}{تعریف تعرفه}{plan_define}
+\secuencediagram{6_admin_set.jpg}{تعیین مدیر}{admin_set}
+\secuencediagram{7_channel_join.jpg}{عضو شدن در کانال}{channel_join}
+\secuencediagram{8_subscription_buy.jpg}{خریدن اشتراک}{subscription_buy}
+\secuencediagram{9_checkout.jpg}{تسویه‌ی مالی}{checkout}
+\secuencediagram{10_share_set.jpg}{تعیین سهم مدیران}{share_set}
+\secuencediagram{11_post_view.jpg}{نمایش پست}{post_view}
+\secuencediagram{12_post_purchase.jpg}{خرید پست}{post_purchase}
+% \secuencediagram{13_channels_list_view.jpg}{نمایش فهرست کانال‌ها}{channels_list_view}
+\secuencediagram{14_find_member.jpg}{یافتن عضو}{find_member}

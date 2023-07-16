@@ -1,0 +1,27 @@
+\newcounter{activityswimlaneid}
+\setcounter{activityswimlaneid}{0}
+\newcommand{\activitydiagramswimlane}[3]{
+    \stepcounter{activityswimlaneid}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.5\textwidth]{files/figures/ActivityDiagramsWithSwimlane/#1}
+        \caption{نمودار فعّالیت برای مورد کاربرد «#2» به شناسه‌ی \arabic{activityswimlaneid}}
+        \label{fig:#3_swimlane}
+    \end{figure}
+}
+
+\activitydiagramswimlane{1_sign_up.jpg}{عضویت}{sign_up}
+\activitydiagramswimlane{2_login.jpg}{ورود}{login}
+\activitydiagramswimlane{3_channel_create.jpg}{ساختن کانال}{channel_create}
+\activitydiagramswimlane{4_post_create.jpg}{فرستادن پست}{post_create}
+\activitydiagramswimlane{5_plan_define.jpg}{تعریف تعرفه}{plan_define}
+\activitydiagramswimlane{6_admin_set.jpg}{تعیین مدیر}{admin_set}
+\activitydiagramswimlane{7_channel_join.jpg}{عضو شدن در کانال}{channel_join}
+\activitydiagramswimlane{8_subscription_buy.jpg}{خریدن اشتراک}{subscription_buy}
+\activitydiagramswimlane{9_checkout.jpg}{تسویه‌ی مالی}{checkout}
+\activitydiagramswimlane{10_share_set.jpg}{تعیین سهم مدیران}{share_set}
+\activitydiagramswimlane{11_post_view.jpg}{نمایش پست}{post_view}
+\activitydiagramswimlane{12_post_purchase.jpg}{خرید پست}{post_purchase}
+\activitydiagramswimlane{13_channels_list_view.jpg}{نمایش فهرست کانال‌ها}{channels_list_view}
+\activitydiagramswimlane{14_search.jpg}{جستجو}{search}
+\activitydiagramswimlane{16_account_exit.jpg}{خروج از حساب}{account_exit}
